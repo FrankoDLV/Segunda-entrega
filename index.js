@@ -19,11 +19,14 @@ const celular3 = new productos("Iphone 13", 900, 150, true);
 const celular4 = new productos("Iphone 11 Pro Max", 700, 190, true);
 const MacBook = new productos("Mac Book air", 1300, 100, true);
 const MacBook2 = new productos("Mac Book Pro", 1500, 100, true);
+const Ipad1 = new productos("Ipad 9na", 400, 120, true);
+const Auric = new productos("Airpods", 100, 300, true);
 
 let total = 0;
 const carrito = [];
 let barrera = true;
 let seguirComprando = true;
+let regalos = Auric;
 
 function keepShopping() {
   if (seguirComprando === false) {
@@ -51,7 +54,8 @@ while (barrera === true) {
       3. Iphone 13
       4. Iphone 11 pro max
       5. Mac book Air
-      6. Mac Book Pro`)
+      6. Mac Book Pro
+      7. Ipad 9na`)
   );
   if (producto === 1) {
     carrito.push(productos.nombre);
@@ -101,4 +105,12 @@ while (barrera === true) {
 
     seguirComprando = confirm("Queres seguir comprando?");
     keepShopping();
-}} 
+  } else if (producto === 7) {
+    carrito.push(Ipad1.nombre), carrito.push(Auric.nombre);
+    alert("Con esta compra te llevas auriculares de regalo !!!");
+    total = total + Ipad1.precio;
+    alerta(Ipad1, total, carrito);
+    seguirComprando = confirm("Queres seguir comprando?");
+    keepShopping();
+  }
+}
